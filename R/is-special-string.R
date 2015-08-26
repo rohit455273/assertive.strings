@@ -8,6 +8,8 @@
 #' cause an error; otherwise they do not.  Like \code{na.rm} in many
 #' stats package functions, except that the position of the failing
 #' values does not change.
+#' @param severity How severe should the consequences of the assertion be?  
+#' Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.
 #' @return \code{is_numeric_string} returns a logical vector that is \code{TRUE}
 #' when the string contains numbers.  The corresponding \code{assert_*} 
 #' functions return nothing but throw an error on failure.
@@ -39,6 +41,8 @@ is_numeric_string <- function(x)
 #' cause an error; otherwise they do not.  Like \code{na.rm} in many
 #' stats package functions, except that the position of the failing
 #' values does not change.
+#' @param severity How severe should the consequences of the assertion be?  
+#' Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.
 #' @return \code{is_single_character} returns \code{TRUE} when the input is a 
 #' single character (as determined by \code{nchar}; this excludes \code{NA}).
 #' The \code{assert_*} functions return nothing but throw an error if the 

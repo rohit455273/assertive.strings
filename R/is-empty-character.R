@@ -1,11 +1,10 @@
-# TODO: Need more scalar functions: is_a_missing_or_empty_string,
-# is_a_non_missing_nor_empty_string
-
 #' Does the input contain empty or missing strings?
 #' 
 #' Checks for empty or missing strings.
 #' @param x A character vector.
 #' @param .xname Not intended to be used directly.
+#' @param severity How severe should the consequences of the assertion be?  
+#' Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.
 #' @return The \code{is_*} functions return logical vectors for strings which
 #' are (non) empty or missing, and the \code{assert_*} functions throw errors
 #' on failure.
@@ -16,7 +15,7 @@
 #' \code{\link[base]{nzchar}}
 #' @examples 
 #' # These functions return a vector:
-#' x <- c("a", "", NA)
+#' x <- c("", "a", NA)
 #' is_empty_character(x)
 #' is_non_empty_character(x)
 #' is_missing_or_empty_character(x)
@@ -26,9 +25,18 @@
 #' is_an_empty_string("")
 #' is_an_empty_string("a")
 #' is_an_empty_string(NA_character_)
-#' is_an_empty_string(c("", ""))
-#' is_an_empty_string(NA_character_)
+#' 
+#' is_a_non_empty_string("")
 #' is_a_non_empty_string("a")
+#' is_a_non_empty_string(NA_character_)
+#' 
+#' is_a_missing_or_empty_string("")
+#' is_a_missing_or_empty_string("a")
+#' is_a_missing_or_empty_string(NA_character_)
+#' 
+#' is_a_non_missing_nor_empty_string("")
+#' is_a_non_missing_nor_empty_string("a")
+#' is_a_non_missing_nor_empty_string(NA_character_)
 #' @importFrom assertive.base coerce_to
 #' @importFrom assertive.base call_and_name
 #' @importFrom assertive.base set_cause
@@ -97,28 +105,3 @@ is_not_missing_nor_empty_character <- function(x)
 }
 
 
-#' @rdname is_empty_character
-#' @importFrom assertive.types is_a_string
-#' @export
-is_an_empty_string <- function(x, .xname = get_name_in_parent(x))
-{
-  if(!(ok <- is_a_string(x, .xname))) return(ok)
-  if(nzchar(x)) 
-  {
-    return(false("%s contains characters.", .xname))
-  }
-  TRUE
-}
-
-#' @rdname is_empty_character
-#' @importFrom assertive.types is_a_string
-#' @export
-is_a_non_empty_string <- function(x, .xname = get_name_in_parent(x))
-{
-  if(!(ok <- is_a_string(x))) return(ok)
-  if(!nzchar(x))
-  {
-    return(false("%s has no characters.", .xname))
-  }
-  TRUE
-}
