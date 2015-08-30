@@ -26,3 +26,25 @@ Then you can install the *assertive.strings* package using
 library(devtools)
 install_bitbucket("richierocks/assertive.strings")
 ```
+
+### Predicates
+
+`is_empty_character`, `is_non_empty_character`, `is_missing_or_empty_character`, and `is_non_missing_nor_empty_character` check for empty and missing (or not) character vectors.
+
+`is_an_empty_string`, `is_a_non_empty_string`, `is_a_missing_or_empty_string`, and `is_a_non_missing_nor_empty_string` do the same, for single strings.
+
+`is_numeric_string` checks for strings that contain numbers.
+
+`is_single_character` checks for single characters.
+
+### Assertions
+
+Predicates that return a vector have two corresponding assertions.  For example,
+`is_numeric_string` has `assert_all_are_numeric_strings` and `assert_any_are_numeric_strings`.
+
+Predicates returning a single logical value have one corresponding assertion.
+For example, `is_an_empty_string` has `assert_is_an_empty_string`.
+
+### Utils
+
+`character_to_list_of_integer_vectors` converts a character vector of numbers to a list of integer vectors.
