@@ -2,14 +2,16 @@
 #' @export
 assert_all_are_numeric_strings <- function(x, na_ignore = FALSE, 
   severity = getOption("assertive.severity", "stop"))
-{                                                     
+{        
+  .xname <- get_name_in_parent(x)                                             
   msg <- gettextf(
     "%s is not a character vector of numbers.", 
-    get_name_in_parent(x)
+    .xname
   )
   assert_engine(
     is_numeric_string, 
     x, 
+    .xname = .xname,
     msg = msg, 
     na_ignore = na_ignore,
     severity = severity
@@ -20,14 +22,16 @@ assert_all_are_numeric_strings <- function(x, na_ignore = FALSE,
 #' @export
 assert_any_are_numeric_strings <- function(x, na_ignore = FALSE, 
   severity = getOption("assertive.severity", "stop"))
-{                                                     
+{        
+  .xname <- get_name_in_parent(x)                                             
   msg <- gettextf(
     "%s is not a character vector of numbers.", 
-    get_name_in_parent(x)
+    .xname
   )
   assert_engine(
     is_numeric_string, 
     x, 
+    .xname = .xname,
     msg = msg, 
     what = "any", 
     na_ignore = na_ignore,
@@ -39,11 +43,13 @@ assert_any_are_numeric_strings <- function(x, na_ignore = FALSE,
 #' @export
 assert_all_are_single_characters <- function(x, na_ignore = FALSE, 
   severity = getOption("assertive.severity", "stop"))
-{                                                     
-  msg <- gettextf("%s are not all single characters.", get_name_in_parent(x))
+{         
+  .xname <- get_name_in_parent(x)                                            
+  msg <- gettextf("%s are not all single characters.", .xname)
   assert_engine(
     is_single_character, 
     x, 
+    .xname = .xname,
     msg = msg, 
     na_ignore = na_ignore,
     severity = severity
@@ -54,11 +60,13 @@ assert_all_are_single_characters <- function(x, na_ignore = FALSE,
 #' @export
 assert_any_are_single_characters <- function(x, na_ignore = FALSE, 
   severity = getOption("assertive.severity", "stop"))
-{                                                     
-  msg <- gettextf("%s are all not single characters.", get_name_in_parent(x))
+{            
+  .xname <- get_name_in_parent(x)                                         
+  msg <- gettextf("%s are all not single characters.", .xname)
   assert_engine(
     is_single_character, 
     x, 
+    .xname = .xname,
     msg = msg, 
     what = "any", 
     na_ignore = na_ignore,

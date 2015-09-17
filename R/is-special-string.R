@@ -21,7 +21,7 @@
 #' @export
 is_numeric_string <- function(x)
 {
-  x <- coerce_to(x, "character")
+  x <- coerce_to(x, "character", .xname)
   ok <- call_and_name(
     function(x)
     {
@@ -56,7 +56,7 @@ is_numeric_string <- function(x)
 #' @export
 is_single_character <- function(x)
 {
-  x <- coerce_to(x, "character")
+  x <- coerce_to(x, "character", .xname)
   ok <- call_and_name(
     function(x)
     {
