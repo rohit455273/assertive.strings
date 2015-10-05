@@ -1,4 +1,4 @@
-#' Convert a character vector to a list of integer vectors.
+#' Convert a character vector to a list of integer vectors
 #'
 #' Split strings by character, then convert to numbers
 #' @param x Input to convert.
