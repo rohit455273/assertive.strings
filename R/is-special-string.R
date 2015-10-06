@@ -10,6 +10,7 @@
 #' values does not change.
 #' @param severity How severe should the consequences of the assertion be?  
 #' Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.
+#' @param .xname Not intended to be used directly.
 #' @return \code{is_numeric_string} returns a logical vector that is \code{TRUE}
 #' when the string contains numbers.  The corresponding \code{assert_*} 
 #' functions return nothing but throw an error on failure.
@@ -19,14 +20,18 @@
 #' assert_any_are_numeric_strings(c("1", "Not a number"))
 #' @importFrom assertive.base is_not_na
 #' @export
-is_numeric_string <- function(x)
+is_numeric_string <- function(x, .xname)
 {
   x <- coerce_to(x, "character", .xname)
   ok <- call_and_name(
     function(x)
     {
-      numx <- suppressWarnings(as.numeric(x))
-      is_not_na(numx)
+      suppressWarnings(
+        {
+          numx <- as.numeric(x)
+          is_not_na(numx)
+        }
+      )
     },
     x
   )
@@ -43,6 +48,7 @@ is_numeric_string <- function(x)
 #' values does not change.
 #' @param severity How severe should the consequences of the assertion be?  
 #' Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.
+#' @param .xname Not intended to be used directly.
 #' @return \code{is_single_character} returns \code{TRUE} when the input is a 
 #' single character (as determined by \code{nchar}; this excludes \code{NA}).
 #' The \code{assert_*} functions return nothing but throw an error if the 
@@ -54,7 +60,7 @@ is_numeric_string <- function(x)
 #' x <- c("", "a", "aa", NA)
 #' is_single_character(x)
 #' @export
-is_single_character <- function(x)
+is_single_character <- function(x, .xname)
 {
   x <- coerce_to(x, "character", .xname)
   ok <- call_and_name(
