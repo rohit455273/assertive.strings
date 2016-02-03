@@ -153,3 +153,21 @@ assert_any_are_non_missing_nor_empty_character <- function(x,
     severity = severity
   )
 }
+
+#' @rdname is_empty_character
+#' @export
+assert_all_strings_are_not_missing_nor_empty <- function(x, 
+  severity = getOption("assertive.severity", "stop"))
+{
+  .Deprecated("assert_all_are_non_missing_nor_empty_character")
+  assert_all_are_non_missing_nor_empty_character(x, severity)
+}
+
+#' @rdname is_empty_character
+#' @export
+assert_any_strings_are_not_missing_nor_empty <- function(x, 
+  severity = getOption("assertive.severity", "stop"))
+{
+  .Deprecated("assert_all_are_non_missing_nor_empty_character")
+  assert_any_are_non_missing_nor_empty_character(x, severity)
+}
