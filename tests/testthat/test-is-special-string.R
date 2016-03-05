@@ -17,3 +17,24 @@ test_that(
   }
 )
 
+
+test_that(
+  "test.is_logical_string.a character vector.returns true when string contains a logical value", 
+  {
+    x <- c(
+      "TRUE", "FALSE", "true", "false", "True", "False", "T", "F", 
+      "trUE", "FaLsE", "t", "f", "NA"
+    )
+    expected <- rep.int(c(TRUE, FALSE), c(8, 5))
+    expect_equal(
+      strip_attributes(actual <- is_logical_string(x)), 
+      expected
+    )
+    expect_equal(names(actual), unname(x))
+    expect_equal(
+      cause(actual),
+      noquote(rep.int(c("", "bad format"), c(8, 5)))
+    )
+  }
+)
+

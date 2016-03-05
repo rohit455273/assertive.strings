@@ -1,8 +1,8 @@
 # TODO: rename as is_numeric_character for consistency?
 
-#' Does the string contain a number?
+#' Does the string contain a number/logical value?
 #' 
-#' Check to see if a character vector contains numeric strings.
+#' Check to see if a character vector contains numeric/logical strings.
 #' @param x A character vector.
 #' @param na_ignore A logical value.  If \code{FALSE}, \code{NA} values
 #' cause an error; otherwise they do not.  Like \code{na.rm} in many
@@ -16,6 +16,13 @@
 #' functions return nothing but throw an error on failure.
 #' @examples
 #' is_numeric_string(c("1", "1.1", "-1.1e1", "one", NA))
+#' # R only treats certain capitalizations of "true" and "false" as logical
+#' x <- c(
+#'   "TRUE", "FALSE", "true", "false", "True", "False", "trUE", "FaLsE", 
+#'   "T", "F", "t", "f"
+#' )
+#' is_logical_string(x)
+#' 
 #' assert_all_are_numeric_strings(c("1", "2.3", "-4.5", "6e7", "8E-9"))
 #' assert_any_are_numeric_strings(c("1", "Not a number"))
 #' @importFrom assertive.base is_not_na
@@ -30,6 +37,26 @@ is_numeric_string <- function(x, .xname)
         {
           numx <- as.numeric(x)
           is_not_na(numx)
+        }
+      )
+    },
+    x
+  )
+  set_cause(ok, ifelse(is.na(x), "missing", "bad format"))
+}
+
+#' @rdname is_numeric_string
+#' @export
+is_logical_string <- function(x, .xname)
+{
+  x <- coerce_to(x, "character", .xname)
+  ok <- call_and_name(
+    function(x)
+    {
+      suppressWarnings(
+        {
+          logx <- as.logical(x)
+          is_not_na(logx)
         }
       )
     },
