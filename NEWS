@@ -1,1 +1,4 @@
+0.0-2 Added _is_logical_string + assertions.
+      Reexported some deprecated fns for back compatibility.
+      Dropped devtools dependency.
 0.0-1 Content extracted from assertive 0.3-0, and tidied.
