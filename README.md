@@ -39,6 +39,8 @@ install_bitbucket("richierocks/assertive.strings")
 
 `is_single_character` checks for single characters.
 
+`is_matching_fixed`, `is_matching_regex`, `is_not_matching_fixed`, and `is_not_matching_regex` all check whether a string matches a pattern or not.
+
 ### Assertions
 
 Predicates that return a vector have two corresponding assertions.  For example,
