@@ -11,11 +11,11 @@
 #' is_not_matching_regex('A-B', '[A-Z][_][A-Z]')
 #' assert_all_are_matching_fixed(c('A_B', 'C_D'), '_')
 #' assert_any_are_matching_fixed(c('A-B', 'C_D'), '_')
-#' assert_none_are_matching_fixed(c('A-B', 'C-D'), '_')
-#' assert_none_are_matching_fixed(c('A-B', 'C-D'), '_')
+#' assert_all_are_not_matching_fixed(c('A-B', 'C-D'), '_')
+#' assert_all_are_not_matching_fixed(c('A-B', 'C-D'), '_')
 #' assert_all_are_matching_regex(c('A_B', 'C_D'), '[A-Z][_][A-Z]')
 #' assert_any_are_matching_regex(c('A-B', 'C_D'), '[A-Z][_][A-Z]')
-#' assert_none_are_matching_regex(c('A-B', 'C-D'), '[A-Z][_][A-Z]')
+#' assert_all_are_not_matching_regex(c('A-B', 'C-D'), '[A-Z][_][A-Z]')
 #' @author Aditya Bhagwat
 #' @rdname is_matching_fixed
 #' @importFrom stringi stri_detect_fixed
