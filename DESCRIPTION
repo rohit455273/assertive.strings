@@ -1,12 +1,12 @@
 Package: assertive.strings
 Type: Package
 Title: Assertions to Check Properties of Strings
-Version: 0.0-2
+Version: 0.0-3
 Date: 2016-03-05
 Author: Richard Cotton [aut, cre]
 Maintainer: Richard Cotton <richierocks@gmail.com>
-Authors@R: person("Richard", "Cotton", role = c("aut", "cre"), email =
-    "richierocks@gmail.com")
+Authors@R: c(person("Richard", "Cotton",  role = c("aut", "cre"), email = "richierocks@gmail.com"), 
+             person("Aditya",  "Bhagwat", role = c("ctb"),        email = "bhagwataditya@gmail.com"))
 Description: A set of predicates and assertions for checking the properties of
     strings.  This is mainly for use by other package developers who want to
     include run-time testing features in their own packages.  End-users will
@@ -17,7 +17,8 @@ Depends:
     R (>= 3.0.0)
 Imports:
     assertive.base (>= 0.0-2),
-    assertive.types
+    assertive.types,
+    stringi
 Suggests:
     testthat
 License: GPL (>= 3)
