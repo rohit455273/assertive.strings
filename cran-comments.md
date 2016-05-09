@@ -1,7 +1,6 @@
 ## Release Summary
 
-This release adds one new feature and reexports some deprecated fns for back 
-compatibility.
+This release adds predicates for matching strings and regexes.
 
 ## Test Environments
 
