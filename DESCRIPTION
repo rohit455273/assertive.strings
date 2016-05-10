@@ -3,7 +3,7 @@ Type: Package
 Title: Assertions to Check Properties of Strings
 Version: 0.0-3
 Date: 2016-03-08
-Author: Richard Cotton [aut, cre]
+Author: Richard Cotton [aut, cre],
     Aditya Bhagwat [ctb]
 Maintainer: Richard Cotton <richierocks@gmail.com>
 Authors@R: c(person("Richard", "Cotton",  role = c("aut", "cre"), email = "richierocks@gmail.com"), 
