@@ -2,6 +2,7 @@
 [![Is the package on CRAN?](http://www.r-pkg.org/badges/version/assertive.strings)](http://www.r-pkg.org/pkg/assertive.strings)
 [![SemaphoreCI Build Status](https://semaphoreci.com/api/v1/projects/bb88f300-f875-4509-9b78-3c8d3c013eb1/635209/badge.svg)](https://semaphoreci.com/richierocks/assertive-strings)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/1ccr3q27ly97sdsu?svg=true)](https://ci.appveyor.com/project/richierocks/assertive-strings)
+[![Research software impact](http://depsy.org/api/package/cran/assertive.strings/badge.svg)](http://depsy.org/package/r/assertive.strings)
 
 # assertive.strings
 
